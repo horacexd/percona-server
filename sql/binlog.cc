@@ -3801,7 +3801,7 @@ static int find_uniq_filename(char *name, uint32 new_index_number) {
   }
   file_info = dir_info->dir_entry;
   for (i = dir_info->number_off_files; i--; file_info++) {
-    if (strncmp(file_info->name, start, length) == 0 &&
+    if (strncmp(file_info->name, start, length) == 0 && // my-binlog.000001, my-binlog.index
         is_number(file_info->name + length, &number, false)) {
       max_found = std::max(max_found, number);
     }
